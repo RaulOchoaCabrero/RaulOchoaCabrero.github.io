@@ -1,0 +1,38 @@
+/* Import Rockwell fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rockwell:wght@400;300&display=swap');
+
+body {
+    font-family: 'Rockwell', sans-serif;
+    background-color: #f5f5dc; /* Light beige color */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: 'Rockwell', serif;
+    text-align: center;
+}
+
+main {
+    margin: 40px; /* Bigger margins for the main text */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
