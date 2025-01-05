@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.7em;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding-top: 40px; /* Increased padding to raise the title */
+        }
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3em; /* Doubled the font size */
+            margin-bottom: 20px;
+            text-align: center; /* Center the title */
+        }
+        .intro-text {
+            text-align: center;
+            margin-left: 15%;
+            margin-right: 15%;
+            margin-bottom: 70px; /* Space between intro text and honeycomb */
+        }
+        .honeycomb {
+            display: flex;
+            flex-wrap: wrap;
+            width: 600px; /* Adjusted width to fit larger hexagons */
+            height: 600px; /* Adjusted height to fit larger hexagons */
+            position: absolute;
+            margin-left: -10%;
+            top: 70px; /* Adjusted position to fit new elements */
+        }
+        .hexagon {
+            width: 200px;
+            height: 110px;
+            background-color: #ff8c00; /* Default color */
+            position: absolute;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.4s;
+        }
+        .hexagon:hover {
+            transform: scale(1.2);
+        }
+        .hexagon:before,
+        .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+        }
+        .hexagon:before {
+            bottom: 100%;
+            border-bottom: 55px solid #ff8c00; /* Default color */
+        }
+        .hexagon:after {
+            top: 100%;
+            width: 0;
+            border-top: 55px solid #ff8c00; /* Default color */
+        }
+        .hexagon[data-color="orange"] {
+            background-color: #D18A09;
+        }
+        .hexagon[data-color="lightgreen"] {
+            background-color: #385723;
+        }
+        .hexagon[data-color="blue"] {
+            background-color: #1e90ff;
+        }
+        .hexagon[data-color="purple"] {
+            background-color: #262626;
+        }
+        .hexagon[data-color="red"] {
+            background-color: #B53A13;
+        }
+        .hexagon[data-color="yellow"] {
+            background-color: #203864;
+        }
+        .hexagon[data-color="cyan"] {
+            background-color: #ABAF05;
+        }
+        .hexagon[data-color="orange"]:before,
+        .hexagon[data-color="orange"]:after {
+            border-bottom-color: #D18A09;
+            border-top-color: #D18A09;
+        }
+        .hexagon[data-color="lightgreen"]:before,
+        .hexagon[data-color="lightgreen"]:after {
+            border-bottom-color: #385723;
+            border-top-color: #385723;
+        }
+        .hexagon[data-color="blue"]:before,
+        .hexagon[data-color="blue"]:after {
+            border-bottom-color: #1e90ff;
+            border-top-color: #1e90ff;
+        }
+        .hexagon[data-color="purple"]:before,
+        .hexagon[data-color="purple"]:after {
+            border-bottom-color: #262626;
+            border-top-color: #262626;
+        }
+        .hexagon[data-color="red"]:before,
+        .hexagon[data-color="red"]:after {
+            border-bottom-color: #B53A13;
+            border-top-color: #B53A13;
+        }
+        .hexagon[data-color="yellow"]:before,
+        .hexagon[data-color="yellow"]:after {
+            border-bottom-color: #203864;
+            border-top-color: #203864;
+        }
+        .hexagon[data-color="cyan"]:before,
+        .hexagon[data-color="cyan"]:after {
+            border-bottom-color: #ABAF05;
+            border-top-color: #ABAF05;
+        }
+        .hexagon:nth-child(1) { top: 90%; left: 50%;}
+        .hexagon:nth-child(2) { top: 60%; left: 70%;}
+        .hexagon:nth-child(3) { top: 90%; left: 90%;}
+        .hexagon:nth-child(4) { top: 120%; left: 70%;}
+        .hexagon:nth-child(5) { top: 120%; left: 30%;}
+        .hexagon:nth-child(6) { top: 90%; left: 10%;}
+        .hexagon:nth-child(7) { top: 60%; left: 30%;}
+        .sidebar {
+            position: absolute;
+            left: 20px;
+            top: 200px;
+            width: 200px;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .sidebar ul li:hover .tooltip {
+            display: block;
+        }
+        .sidebar ul li .tooltip {
+            display: none;
+            position: absolute;
+			font-size: 0.8em;
+            left: 110%;
+            top: 0;
+            width: 200px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar ul li .icon {
+            margin-right: 10px;
+        }
+        .sidebar .disclaimer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #666;
+        }
+        .preview-box {
+            display: none;
+            position: absolute;
+            font-size: 0.5em;
+            right: -250px;
+            width: 200px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            z-index: 20;
+        }
+		.preview-box h3 {
+			font-family: 'Roboto Slab', serif;
+            font-size: 1.5em;
+        }
+        .hexagon:hover .preview-box {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Toolkit for STEM Education</h1>
+    <div class="intro-text">
+        The following resource compiles a range of AI tools that are useful in the Department of Engineering. The aim of this toolkit is to have a collaborative space where colleagues can share best practices and state-of-the-art AI tools. Work in Progress.
+    </div>
+    <div class="sidebar">
+        <h2>Key Issues for AI</h2>
+        <ul>
+            <li>
+                <span class="icon">🔓</span> Open
+                <div class="tooltip">Transparency or how much information they provide about their algorithms, training data, etc… </div>
+            </li>
+            <li>
+                <span class="icon">🕵️</span> Private
+                <div class="tooltip">The way they process the information you use as input in their service.
+</div>
+            </li>
+            <li>
+                <span class="icon">✔️</span> Validity
+                <div class="tooltip">How accurate or reliable are the outputs of the service.</div>
+            </li>
+            <li>
+                <span class="icon">⚖️</span> Non-biased
+                <div class="tooltip">Encompasses digital poverty, accessibility, EDI, etc… </div>
+            </li>
+            <li>
+                <span class="icon">🛡️</span> Ethical
+                <div class="tooltip">Encompasses a wide range of topics. For instance, how was training data sourced? the case of translators, actors, graphic designers, etc…. Another example is carbon emissions for minimal improvements</div>
+            </li>
+        </ul>
+        <div class="disclaimer">
+            The presence of an icon represents “good” practice around the category. However, categories are better considered as a spectrum rather than binary classification.
+        </div>
+    </div>
+    <div class="honeycomb">
+        <div class="hexagon" data-color="orange" onclick="location.href='general.html'">
+            General
+            <div class="preview-box" style="background-color: #D18A09; right: -450px">
+                <h3>LLMs</h3>
+                <ul>
+                    <li>Copilot</li>
+                    <li>Chat-GPT</li>
+					<li>Claude</li>
+                    <li>Gemini</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hexagon" data-color="lightgreen" onclick="location.href='research_assistants.html'">
+            Research Assistants
+            <div class="preview-box" style="background-color: #385723; right: -325px">
+                <h3>Search Engines</h3>
+                <ul>
+                    <li>Consensus</li>
+                    <li>Perplexity</li>
+                </ul>
+                <h3>Analysis</h3>
+                <ul>
+                    <li>Elicit</li>
+                    <li>SciSpace</li>
+                </ul>
+                <h3>Collaboration</h3>
+                <ul>
+                    <li>PaperBrain</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hexagon" data-color="blue" onclick="location.href='#academic-writing'">
+            Academic Writing
+            <div class="preview-box" style="background-color: #1e90ff;">
+                <h3>Writing</h3>
+                <ul>
+                    <li>Paper Pal</li>
+                    <li>Jenni</li>
+					<li>Sourcely</li>
+                    <li>Heuristica</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hexagon" data-color="purple" onclick="location.href='multimedia.html'">
+            Multimedia
+            <div class="preview-box" style="background-color: #262626; right: -325px">
+                <h3>Image</h3>
+                <ul>
+                    <li>Stable Diffusion</li>
+                    <li>Adobe Firefly</li>
+                </ul>
+				<h3>Presentation</h3>
+                <ul>
+                    <li>Mentimeter</li>
+                    <li>Slidesgo</li>
+                </ul>
+				<h3>Voice</h3>
+                <ul>
+                    <li>ElevenLabs</li>
+                </ul>
+				<h3>Video/Content Creation</h3>
+                <ul>
+                    <li>Canva</li>
+					<li>Adobe Express</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hexagon" data-color="red" onclick="location.href='admin_tasks.html'">
+            Admin Tasks
+            <div class="preview-box" style="background-color: #B53A13; left: -335px" >
+                <h3>Timetabling</h3>
+                <ul>
+                    <li>Timefold</li>
+                </ul>
+				<h3>Mail</h3>
+                <ul>
+                    <li>Mailbutler</li>
+                </ul>
+				<h3>Meeting Assistants</h3>
+                <ul>
+                    <li>Otter</li>
+                </ul>
+				<h3>Grading/Learning Platforms</h3>
+                <ul>
+                    <li>Learnosity</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hexagon" data-color="yellow" onclick="location.href='data_analysis.html'">
+            Data Analytics
+            <div class="preview-box" style="background-color: #203864; left: -250px">
+                <h3>Analysis</h3>
+                <ul>
+                    <li>Julius</li>
+                </ul>
+				<h3>Platform</h3>
+                <ul>
+                    <li>databricks</li>
+                </ul>
+				<h3>Insights</h3>
+                <ul>
+                    <li>Quivr</li>
+                </ul>
+            </div>
+        </div>
+        <div class="hexagon" data-color="cyan" onclick="location.href='eng_software.html'">
+            Engineering Software
+            <div class="preview-box" style="background-color: #ABAF05; left: -330px">
+                <h3>Design</h3>
+                <ul>
+                    <li>Fusion 360 Generative Design</li>
+                </ul>
+				<h3>FEA</h3>
+                <ul>
+                    <li>Ansys AI</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
