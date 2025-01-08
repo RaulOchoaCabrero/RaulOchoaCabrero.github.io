@@ -132,35 +132,72 @@
     </div>
     <div class="content">
         <h2 id="image">Image</h2>
-        <h3>Stable Diffusion</h3>
+        <h3>Stable Diffusion <span class="icon">🔓🕵️✔️⚖️🛡️</span></h3>
         <div class="clearfix">
             <!-- Container for the YouTube video link -->
             <div class="video-container">
-                <iframe width="600" height="350" src="https://www.youtube.com/embed/I8VC6R7-J6M?si=D0q6HdOFgg9ZQ0XY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="600" height="350" src="https://www.youtube.com/watch?v=AbB33AxrcZo&list=PLIF38owJLhR1EGDY4kOnsEnMyolZgza1x&index=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <!-- Text content that wraps around the containers -->
-            <p>Consensus is an <strong>AI search engine for research</strong>. According to their websit, it responsibly uses AI to help conduct research faster. These are the main points: </p>
-			<div>
-				<ul>
-        			<li><strong>Extensive research coverage</strong>, earch through over 200M research papers across every domain of science and academia.</li>
-        			<li><strong>Time-saving AI insights</strong>, gain insight faster with our Pro Analysis and Consensus Meter. We leverage both OpenAI and custom LLMs.</li>
-        			<li><strong>Find the most relevant papers</strong>, our proprietary academic search tools and filters help you find the most relevant and reliable research papers, faster. </li>
-					<li> <strong> Results connected to science</strong>, everything we show in our product is cited. You're always only one click away from the underlying research paper.</li>
-    			</ul>
-			</div>
+            <p>Stable Diffusion 3 Medium (SD3M) is a <strong>two billion-parameter</strong> Multimodal Diffusion Transformer (MMDiT) <strong>text-to-image model</strong> that significantly improves image quality, typography, complex prompt understanding, and resource efficiency performance. Developed by Stability AI and <strong>open-sourced</strong> to empower a wide range of users, this model brings industry-leading image generation capabilities within everyone’s reach. text-to-image model that significantly improves image quality, typography, complex prompt understanding, and resource efficiency performance.
+			</p>
+			<p>Developed by Stability AI and open-sourced to empower a wide range of users, this model brings industry-leading image generation capabilities within everyone’s reach. There are many ways to engage with SD3M, such as using Stability AI’s Developer Platform or our chat-based interface, Stable Assistant.</p>
+			<p>Both these methods can get you up and running quickly and let you utilize our state-of-the-art Image Generation models. However, what sets Stability AI apart is that our models are open-source. This means you can download the model weights and parameters and run them on your servers and infrastructure. This allows you a level of security not available with closed-source AI models.  </p>
 			<!-- Container for the image -->
             <div class="image-container">
-                <img src="\images\consensus_example1.png" alt="consensus output" style="width:100%;">
+                <img src="\images\stable_diffusion_model.png" alt="consensus output" style="width:100%;">
             </div>
-			<p>This is an example of the of outputs of the AI tool. The search inquries about the effect of exercise and cognition and the AI generates a synthesis of the research on the topic (proprietary LLM) with an bar visualising the consesus on the question and a conclusion at the end. It also suggests related questions and the results provide a list of the peer-reviewed articles and sources that are used to provide the information. They have tags such as "Meta Analysis" or "Very Rigorous Journal" to help the reader filter through the research papers on the topic.</p>
+			<h4>Model Description</h4>
+			<div>
+				<ul>
+        			<li>This is a model that can be used to generate images based on text prompts. It is a Multimodal Diffusion Transformer (<a href="https://arxiv.org/abs/2403.03206">https://arxiv.org/abs/2403.03206</a>) that uses three fixed, pretrained text encoders (OpenCLIP-ViT/G, CLIP-ViT/L and T5-xxl)</li>
+    			</ul>
+			</div>
+			
+			<h4>Training Dataset</h4>
+			<div>
+				<ul>
+        			<li>We used <strong>synthetic data and filtered publicly available data</strong> to train our models. The model was pre-trained on 1 billion images. The fine-tuning data includes 30M high-quality aesthetic images focused on specific visual content and style, as well as 3M preference data images.</li>
+    			</ul>
+			</div>
+			<div>
+				<ul>
+        			<li><strong>Free license for research, non-commercial, and commercial use</strong> for organisations or individuals with less than $1M annual revenue. </li>
+    			</ul>
+			</div>
+			<div class="video-container">
+                <img src="\images\stable_diffusion_google_key.png" alt="consensus output" style="width:100%;">
+            </div>
+			<h4>Installation/Use Methods</h4>
+			<div>
+				<ul>
+        			<li><strong>Google Colab</strong></li>
+    			</ul>
+			</div>
+		  	<p>You can access the API using Google Colab by clicking on this <a href="https://colab.research.google.com/github/stability-ai/stability-Sdk/blob/main/nbs/SD3_API.ipynb#scrollTo=AvTo6cVeF3ip">LINK</a>. It requires buying credits and linking your key to the notebook so you can start using it, each use will consume a certain amount of credits.</p>
+			<div>
+			<div>
+				<ul>
+        			<li><strong>Download Code (Hugging Face)</strong></li>
+    			</ul>
+			</div>
+		  	<p>You can access the code and model to host in your own computer by clicking on this <a href="https://huggingface.co/stabilityai/stable-diffusion-3-medium">LINK</a>. It is free for research/academic use and comercial use for entities under $1M revenue. Will require to sign up and verify your credentials</p>
+			<p>The most user-friendly option is to get <strong>ComfyUI</strong>, it is an open-source software developed by the Stable Diffusion community and has been widely adopted for using Diffusion models. It allows you to create model workflows by grouping nodes that can be custom-built or taken from the active Stable Diffusion community, which develops a vast array of nodes. There are numerous tutorials available for ComfyUI!</p>
+			<p>First, navigate to <a href="https://github.com/comfyanonymous/ComfyUI?tab=readme-ov-file">this GitHub page</a> and download as a zip (or use Git if you are familiar with GitHub). Then extract the portable folder in your desired location for self-hosting.</p>
+			<div class="image-container">
+                <img src="\images\stable_diffusion_comfyui_setup.png" alt="consensus output" style="width:100%;">
+            </div>
+			<p>From this, go to the windows portable folder and select the appropriate executable (.bat). It should run! If you get an error, please download the stable diffusion checkpoints from: <a href="https://huggingface.co/stabilityai/stable-diffusion-3-medium/tree/main">https://huggingface.co/stabilityai/stable-diffusion-3-medium/tree/main</a>. Then move the downloaded file into ComfyUI\models\checkpoints</p>
+			<p>Launch Comfy UI and start generating!</p>
 			<div>
 				<h4>
 					Additional Info
 				</h4>
 				<div>
 					<ul>
-						<li><a href="https://consensus.app">Consensus Website</a></li>
-						<li>For more information contact: example@mmu.ac.uk</li>
+						<li><a href="https://stability.ai/learning-hub/setting-up-and-using-sd3-medium-locally">Stability AI page</a></li>
+						<li>For more information contact: r.ochoa.cabrero@mmu.ac.uk</li>
+						<li>If you are interested in image generation and prompt engineering (AI literacy) workshops contact the same email.</li>
 					</ul>
 				</div>
 			</div>
