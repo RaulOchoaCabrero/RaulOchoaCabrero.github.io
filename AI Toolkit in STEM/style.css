@@ -40,6 +40,46 @@ body {
             height: 65%;
             overflow-y: auto;
         }
+	.video-container {
+            float: right;
+            width: 45%;
+            margin-left: 50px;
+        }
+        /* Style for the image container */
+        .image-container {
+            float: left;
+            width: 45%;
+            margin-right: 50px;
+        }
+        /* Clear floats after the containers */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+		/* Style for the back button */
+        .back-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            color: #D18A09;
+            border: 2px solid #D18A09;
+            border-radius: 5px;
+            padding: 10px;
+            text-decoration: none;
+            font-family: 'Roboto Slab', serif;
+            font-size: 0.8em;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #D18A09;
+            color: #ffffff;
+        }
+        .back-button img {
+            margin-right: 10px;
+        }
 		.sidebar h2 {
             font-family: 'Roboto Slab', serif;
             font-size: 1.2em;
