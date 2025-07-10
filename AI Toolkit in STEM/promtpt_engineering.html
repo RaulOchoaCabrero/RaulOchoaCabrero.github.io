@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Workbook</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>                         
+<body>
+    <div class="sidebar">
+        <h2>Index</h2>
+        <ul>
+            <li><a href="#Intro">Introduction</a></li>
+			<li><a href="#Prompting">Prompt Engineering</a></li>
+			<li><a href="#Context">Context Practice</a></li>
+			<li><a href="#Summary">Summary Practice</a></li>
+			<li><a href="#Style">Style Practice</a></li>
+			<li><a href="#Role">Roleplay Practice</a></li>
+			<li><a href="#PARE">PARE Practice</a></li>
+        </ul>
+		<!-- Back button with icon -->
+        <a href="menu.html" class="back-button">
+            <img src="back_button.png" alt="back" width="20" height="20">
+            Back to Menu
+        </a>
+    </div>
+	<div class="content">
+        <h1 id="Title">Prompt Engineering Workbook</h1>
+        <h2 id="Intro">Introduction</h2>
+        <div class="clearfix">
+        	<h3><strong>What is Artificial Intelligence (AI)?</strong></h3>
+            <p>The best way to understand artificial intelligence is to think of it as the <strong>statistical optimisation of tasks</strong>.</p>
+           	<p>The AI tools are created with mathematical models that use training data and algorithms, or recipies, to perform a wide range of tasks. The goal is to reduce or minimise statistical errors. </p>
+          	<p>Decision trees and linear regression are great examples of these algorithms and the way data is used to minimise errors. </p>
+          	<!-- Container for the image -->
+            
+			<h3><strong>What are Large Language Models (LLMs)?</strong></h3>
+			<div class="image-container">
+                <img src="word_embeddings.png" alt="James Phoenix, Prompt Engineering for Generative AI" style="width:100%;">
+            </div>
+			<p>They are are a form of AI that generates text, <strong>the basic idea is guessing the next word given a current string of words</strong>.</p>
+			<p>They use Natural Language Processing (NLP), which combines linguistics and mathematics, to represent words (tokens) as vectors or embeddings in a high-dimensional space.</p>
+			<p>The architecture of these LLMs (often called transformers), is designed to capture semantic and syntactic relations. This means they use the <strong>context of words or tokens</strong> (and the properties of the vector space) to produce a "better" guess of the next word.</p>
+			<p>Context plays a crucial role in the meaning of words and ultimately in generating text. Therefore they also have mechanisms (self-attention) to "remember" or more accurately ensure the whole string of tokens in the <strong>input text or prompt</strong> is accounted for when producing the best guess of the next word.</p>
+			<section id="practice">
+            		<h3>Practice</h3>
+					<p>Click on the <strong>Copilot</strong> icon in the top-right corner. Use the area to practice some simple prompts or inputs and see the tools in action. You can try the standard prompts that are suggested in most LLMs: "write a first draft of [topic]" or "teach me something about [topic]".</p>
+					<p>Try a few times and <strong>critically evaluate</strong> the outputs before moving forward.</p>
+        	</section>
+			<h3><strong>Common Issues</strong></h3>
+			<div class="video-container">
+                <img src="bad_hand.jpg" alt="Bad anatomy of hand produced with Adobe Firefly" style="width:100%;">
+            </div>
+			<p>There are some common problems or errors that often occur when using generative AI:</p>
+			<div>
+					<ul>
+						<li><strong>Hallucinations</strong>, sometimes the generated content has errors such as additional fingers in image generation or reference to information that does not exist.</li>
+						<li><strong>Bias</strong>, the outputs of AI depend on the data it is trained on and it will always have biases from the data (cultural, linguistic, etc...).</li>
+						<li><strong>Innacurate</strong>, often the text can have inaccuracies and incorrect results (a good example is mathematical problem solving and reasoning).</li>
+						<li><strong>Vague and Generalised</strong>, most often the outuputs are general and vague since the training data is extremely vast.</li>
+					</ul>
+			</div>
+			<p>It is always good to remember <strong>statistical pitfalls</strong> that are present with any statistical approach.</p>
+			<p>For example, the average height in Denmark is extremly different from the average height in Guatemala.</p>
+			<p>Another important statistical fact is that <strong>95% confidence intervals fail 5% of the time!</strong></p>
+			<p>The most important thing to remember with any AI tool is that <strong>"critical analysis and skeptisism are key!"</strong></p>
+			<p>For most applications it is crucial that you <strong>take ownership of the work</strong>, you are the only one accountable for the inclusion of AI outputs in your work. Ensure that you <strong>utilise AI critically, ethically and responsibly.</strong></p>
+			<div>
+				<h4>
+					Additional Info
+				</h4>
+				<div>
+					<ul>
+						<li><a href="https://books.google.co.uk/books/about/Prompt_Engineering_for_Generative_AI.html?id=y7oIEQAAQBAJ&redir_esc=y">James Phoenix Book</a>, a great book to get you started</li>
+						<li><a href="https://www.youtube.com/watch?v=LPZh9BOjkQs&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=5">3Blue1Brown</a>, amazing video resources to understand the mathematics behind LLMs</li>
+						<li>Prompt Engineering Workshops</li>
+						<li>For more information contact: r.ochoa.cabrero@mmu.ac.uk</li>
+					</ul>
+				</div>
+			</div>  
+	</div>
+    <h2 id="Prompting">Prompt Engineering</h2>
+        <div class="clearfix">
+        	<h3><strong>What is Prompt Engineering?</strong></h3>
+            <p>The term "Prompt Engineering" refers to the method used when dealing with AI tools to <strong>consistently produce accurate and reliable outputs</strong>.</p>
+           	<p>As we discussed, a fundamental approach is to provide more context in the prompts to approximate the specific region of space (in the high-dimensional vector space) that will produce tokens or words that best approximate our desired outputs.</p>
+          	<p>With this in mind, there are five fundamental principles of prompting that achieve consistent and accurate results:</p>
+			<div>
+					<ul>
+						<li><strong>Direction and Detail</strong>, clear and detailed instructions produce clear and accurate outputs.</li>
+						<li><strong>Specific</strong>, details and specifics help approximate the context region which results in consistent outputs.</li>
+						<li><strong>Examples</strong>, providing examples of the desired outputs are extremley helpful to consistently produce the desired format and style.</li>
+						<li><strong>Evaluation</strong>, critical analysis and evaluation are crucial aspects of the prompting process to identify errors.</li>
+						<li><strong>Divide Tasks</strong>, it is extremely difficult to accomplish complex tasks in one go, break the problem down into simpler steps.</li>
+					</ul>
+			</div>
+          	<!-- Container for the image -->
+            
+			<h3><strong>Prompting Frameworks</strong></h3>
+			<div class="image-container">
+                <img src="copilot_interface.png" alt="consensus output" style="width:100%;">
+            </div>
+			<p>There are some useful frameworks that can help remember best practices when prompting generative AI, LLMs in particular. They can be divided in <strong>inputs-focused</strong> (PREP, RACE and PARE) and <strong>output-focused</strong> (EDIT)</p>
+			<div class="diagram-container">
+            	<div class="circle-container">
+                	<div class="circle" id="circle1">
+                    	PREP and RACE
+                    	<div class="hover-box" style="left: -270px; top: 10px">
+                        	<p><strong>PREP</strong> = Prompt, Role, Explicit, Parameters</p>
+							<p>and</p>
+							<p><strong>RACE</strong> = Role, Action, Context, Execute</p>                   	
+						</div>
+                	</div>
+                	<div class="circle" id="circle2">
+                    	PARE
+                    	<div class="hover-box" style="left: 150px; top: 10px">
+							<p><strong>PARE</strong> = </p>
+							<p>Prime (what it knows),</p> 
+							<p>Augment (questions to improve),</p>
+							<p>Refresh (add relevant text),</p> 
+							<p>Evaluate</p>
+                    	</div>
+                	</div>
+                	<div class="diagonal-line-left"></div>
+                	<div class="diagonal-line-right"></div>
+            	</div>
+            		<div class="line"></div>
+            		<div class="circle" id="circle3">
+                		EDIT
+                		<div class="hover-box" style="left: -300px; top: -250px">
+                    		<p><strong>EDIT</strong> = </p>
+							<p>Evaluate (check format),</p> 
+							<p>Determine (accuracy and verification),</p>
+							<p>Identify (bias or misinformation),</p> 
+							<p>Transform, (correct and repeat)</p>
+                		</div>
+            		</div>
+        	</div>
+			<p>The main points to emphasise are that <strong>critical analysis is crucially important</strong> and <strong>improving the context improves the output</strong>.</p>
+			<section id="practice2">
+            		<h3>Practice</h3>
+					<p>Try improving the previous prompt "write a first draft of [topic]" or "teach me something about [topic]". Use these frameworks to add context and see how your outputs improve. Be mindful of the common issues, e.g., biased, vague, innacurate, and try to correct them.</p>  
+        	</section>
+			<div>
+				<h4>
+					Additional Info
+				</h4>
+				<div>
+					<ul>
+						<li><a href="https://books.google.co.uk/books/about/The_AI_Classroom.html?id=G8eqzwEACAAJ&redir_esc=y">AI Classroom</a>, a good book on prompting frameworks for students and teachers</li>
+						<li><a href="https://www.trustinsights.ai/insights/whitepapers/woefully-incomplete-book-generative-ai/">Incomplete Book of AI</a>, another good resource to get started with AI</li>
+						<li>Prompt Engineering Workshops</li>
+						<li>For more information contact: r.ochoa.cabrero@mmu.ac.uk</li>
+					</ul>
+				</div>
+		 	</div>  
+			<h3><strong>Standard Practice</strong></h3>
+			<p>The following sections are standard practice when using LLMs and can help in various kinds of tasks. Each section has a practice aspect included as in the previous sections.</p>
+			<div>
+					<ul>
+						<li><strong>Context</strong></li>
+						<li><strong>Summarising/Chunking</strong></li>
+						<li><strong>Text Style Unbundling</strong></li>
+						<li><strong>Sentiment Analysis</strong></li>
+						<li><strong>Role Prompting</strong></li>
+						<li><strong>Least-to-Most</strong></li>
+			  </ul>
+		  </div>
+		</div> 
+		
+	<h2 id="Context">Standard Practice 1: Context</h2>
+		<div class="image-container">
+                <img src="person_blog.jpg" alt="person using a laptop produced with Stable Diffusion" style="width:100%;">
+        </div>
+        <div class="clearfix">
+        	<h3><strong>Asking for Context</strong></h3>
+            <p>LLMs are particularly well suited for breaking down the text and its context since they relate vectors or embeddings in a specific region of the high-dimensional space.</p>
+           	<p>We can use <strong>Copilot</strong> or other LLMs to help us understand complicated topics and give us some advice on learning more about the subject/context.</p>
+          	<p>We can generate complicated text or use a journal article that is difficult to understand:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox1')">PROMPT (Middle English)</button>
+			<button class="prompt-button" onclick="toggleBox('textBox2')">PROMPT (Abstract Mathematics)</button>
+			<a href="https://ieeexplore.ieee.org/document/1637685"> Engineering Design Journal Article</a>
+			<div id="textBox1" class="prompt-box">Generate a compelling story using middle English or archaic language in the style of Shakespeare. Include words like bruit, appetency and tosticated. The plot should revolve around a horse race that was rigged by the king. Make sure it has rhyming couplets. Include a title that describes the honour lost using a header, with bullet points for each paragraph. Make it 300 words long and you must use British spelling. </div>
+			<div id="textBox2" class="prompt-box">Generate text that is written in very complex and formal English, explaining the various concepts of infinity in mathematics, Goedel's incompletness theorem and their connection to the axiom of choice. Ensure the text is very technical, requiring abundant background knowledge on each of the topics. Do not include sources or links to texts that would help understand it more clearly, the objective is to make it complicated and obfustaced. Keep the text under 500 words.</div>
+			<p>Once you have generated or obtained the difficult text (this could include translations) you can start prompting it for context, a summary or advise on steps to take that will help understand it better (such as background knowledge).</p>
+			<p>Here is an example of a prompt for the engineering desing paper that can help gain deeper understanding of the text, remember to <strong>critically evaluate</strong> the output and corroborate with <strong>valid sources</strong>.</p>
+			<button class="prompt-button" onclick="toggleBox('textBox3')">PROMPT 1.0</button>
+			<div id="textBox3" class="prompt-box">Given the following peer-reviewed scientific journal article, which has topics of deign, engineering and computing, please help me understand what it is about. I would appreciate if you could simplify the text so I can understand it, I am a first-year university student. Summarise the main ideas, maybe link some useful resources that will help me understand the topic better. I am also an international student and English is not my first language, include a section on difficult words and how I can better improve my English skills. Please reply using bullet points where the first section is the summary, the second section is context, then you can add a couple more sections as needed but make sure to finish with a section about useful resources and one about improving my English. Here is the journal abstract: [ insert abstract here ]</div>
+			<h3><strong>Giving Context to LLMs</strong></h3>
+			<p>An invaluable tip when using LLMs is to <strong>ask the tool to what information or context it needs to improve the output</strong>. This can significantly help get more consistent and accurate outputs. The following example can help to illustrate this aspect, it is about deciding on programming langagues for a coursework on numerical methods:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox4')">PROMPT 1.1</button>
+			<div id="textBox4" class="prompt-box">I need to make a decision on whether MATLAB or python is best suited for my coursework. Please list some advantages and disadvantages of each. Let me know what additional information or context you require to make an informed decision on the best option. Ignore the format of the previous prompt, just reply using bullet points for the advantages and disadvantages, and a final section with the additional information you need. Keep the reply short, under 300 words.</div>
+			<p>From this, evaluate the output carefully and then reply with the required context to obtain an improved output. Here is an example of a follow-up prompt:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox5')">PROMPT 1.2</button>
+			<div id="textBox5" class="prompt-box">The coursework asks us to program a numerical method seen during the module (Euler and Runge-Kutta), the problem we are modelling is the design of a heat sink. I have some experience with MATLAB but I have also started to learn python although I am still a beginner. My plans are to become proficient with both since programming using python and MATLAB are requirements in most jobs I am interested in.</div>
+		</div>
+	
+	<h2 id="Summary">Standard Practice 2: Summarising and Chunking</h2>
+		<div class="image-container">
+                <img src="F1_car.jpg" alt="Formula 1 car" style="width:100%;">
+        </div>
+        <div class="clearfix">
+            <p>As mentioned previousy, LLMs are particularly well suited to analyse the context and output text in the region of the high dimenisional space. Therefore, it can be an invaluable tool to <strong>break down complicated text into manageable "chunks"</strong> or summarise paragraphs which helps understand the text significantly.</p>
+			<p>Using the previous section's article on engineering design, we can break down the text into manageable elements with a summary of each. Here is an example of a prompt to use:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox14')">PROMPT 2.0</button>
+			<div id="textBox14" class="prompt-box">I am working on a design project about racing cars. Given the following peer-reviewed article on industrial design, help me understand it so I can collaborate with people from other disciplines. Please summarise the text in the style of a university lecturer, teaching first-year students. It has elements of engineering, design and computing so please summarise the text in their corresponding fields. I aim to have a general understanding of all fields involved. Make sure the text uses headers and bullet points for each discipline. After this, please chunk the text in manageable and digestible chunks. Please also extract the topic of each chunk so I can ask colleagues more knowledgeable in each field what each chunk is describing. Please also mention how each chunk connects to the other. Here is the text: [insert text here].</div>
+           	<p>PDF readers are increasingly adopting AI in the software that performs some of these tasks.</p>
+          	<p>Be mindful of number of tokens/words (there might be a limit in some tools).</p>
+		</div>
+		
+	<h2 id="Style">Standard Practice 3: Text Style Unbundling</h2>
+		<div class="image-container">
+                <img src="robot_feelings.jpg" alt="Robot with the word feelings near it, produced with Stable Diffusion" style="width:100%;">
+        </div>
+        <div class="clearfix">
+            <p>LLMs can be used to analyse the style of the text given their ability to categorise the context. It can help you understand the structure, tone, etc... more importantly it helps you remain consistent across several pieces of work (blogs, articles, presentations).</p>
+			<p>Using the previous section's text (Middle English), we can break down the style which can help replicate it in future work. Here is an example of a prompt to use with the Middle English generated text:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox6')">PROMPT 3.0</button>
+			<div id="textBox6" class="prompt-box">Given the following text, please unbundle/analyse the style of the text. I want to use the same style for a number of blog posts on rhyming in middle English, it is important that it remains consistent. Please provide bullet points with explanation of at least 7 different features such as tone, vocabulary, structure, etc... Include also some writing tips on how I can ensure I can replicate the same style using bullet points. Use headers where the first one refers to the text style analysis and the second to the writing advice. Make sure the output is shorter than 500 words. Here is the text: [include text or refer to previous prompt here].</div>
+			<h3><strong>Qualitative Analysis</strong></h3>
+           	<p>LLMs are a great tool for <strong>sentiment analysis</strong> and can be extremely useful for qualitative studies. As before, this is linked to the context and tone.</p>
+          	<p>The following example is situated in the context of processing the feedback from focus group participants:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox7')">PROMPT 3.1</button>
+			<div id="textBox7" class="prompt-box">Please help categorise the feedback from a focus group, made up of professional race car drivers, on the design of the suspension system. Rate them exclusively as positive, neutral, mixed or negative. For example "The suspension works great in making a smooth ride but steering is not as accurate" is mixed, "I did not notice any difference with commonly used suspension systems" is neutral and "The suspension was amazing, it makes a huge difference when racing for long periods of time" is positive. Rate the sentiment of the following feedback "I appreciate the lengths that you go through to design and refine such complex suspension systems. However, while I appreciate the effort the benefits are minimal and the effort might be better invested somewhere else"</div>
+			<p>You can additionally include the following message <italic>"Please ensure the output is only one word containing positive, neutral, mixed or negative."</italic> if you do not want the tool to provide information on the selection process.</p>
+			<p>As always it is crucially important to remember that <strong>critical analysis and evaluation are key</strong>. Use the prompting principles and frameworks to ensure your outputs are accurate and consistent.</p>
+		</div>
+
+	<h2 id="Role">Standard Practice 4: Role Promptig and Limitations</h2>
+		<div class="image-container">
+                <img src="business_panel.jpg" alt="Business meeting produced with Stable Diffusion" style="width:100%;">
+        </div>
+        <div class="clearfix">
+            <p>LLMs are particularly useful to improve our existing work. Outputs are grammatically and linguistically of great quality, moreover, they have syntactical context to help with the structure and provide feedback on written work.</p>
+			<p>A good example of this is role prompting, or <strong>giving the LLM a "voice"</strong>, which not only immediately provides context but also enables interactions containing structured feedback. This is also a good opportunity to test the limitations of these tools.</p>
+			<p>The following prompts are an example in which the LLM is given the role of panel reviewer. You can use your own work or generate one using Prompt 4.0 (Material Selection for UAV), Prompt 4.1 is an example of how to assign a role and ask for feedback:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox8')">PROMPT 4.0</button>
+			<button class="prompt-button" onclick="toggleBox('textBox9')">PROMPT 4.1</button>
+			<div id="textBox8" class="prompt-box">What materials would be best suited for unmanned aerial vehicles for IoT applications, considering factors like cost, durability, and environmental impact.</div>
+			<div id="textBox9" class="prompt-box">You will act as a panel reviewer for a funding body that is looking into investing in research or project that will help the local council. Please review the following project and provide feedback on how to improve the proposal. Make sure to use bullet points and sections, for example, a section about the structure, another about the technical detail, and another on the novelty. Provide feedback on the writing. It will be submitted after your feedback so make sure it will be a competitive submission once the corrections have been addressed. Provide an overall score out of 10 and keep your feedback under 500 words. Here is the text: [insert text here]</div>
+			<p>You will notice limitations of the tools, most common are:</p>
+			<div>
+					<ul>
+						<li><strong>AI rates its own outputs higher than they should</strong></li>
+						<li><strong>Superficial "understanding"</strong></li>
+						<li><strong>Not critical or accurate in its reflections</strong></li>
+						<li><strong>Focused more on structure and grammar than content</strong></li>
+			  		</ul>
+			</div>
+			<p>These are a consequence of the statistical pitfalls mentioned above. These tools do not "understand" deeply the specific text or subject, they are tailored to gauge generic syntactical, contextual and linguistic structures/relations.</p>
+		</div>	
+	
+	<h2 id="PARE">Standard Practice 5: Least to Most (PARE)</h2>
+		<div class="image-container">
+                <img src="friendly_robot.jpg" alt="Friendly robot produced with Stable Diffusion" style="width:100%;">
+        </div>
+        <div class="clearfix">
+            <p>One of the benefits of LLMs is their ability to promote learning opportunities in the form of dialogue. This is particularly relevant within the <strong>PARE framework</strong>, where you first Prime surface knowledge then Augment by asking questions to improve, Refresh with the relevant information and finally Evaluate the output.</p>
+			<p>As always <strong>critical analysis and evaluation are essential</strong> for this task, particularly because <strong>overreliance on generated text increases the chances of errors</strong>. Think of the statistical pitfalls, assuming the chance of errors is 5% (optimistically), after more than 5 prompts the chance of errors overall accumulates to 23%. The analysis of errors is more complicated but this result conveys the underlying issues surrounding their use.</p>
+			<p>Imagine an example where we are interested in understanding how to implement a PESTLE analysis in Engineering. The following prompts can help as a guide to illustrate the use of this method:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox10')">PROMPT 5.0</button>
+			<div id="textBox10" class="prompt-box">Please explain to me in the style of a Lecturer in Engineering, what a PESTLE analysis is. Provide suitable sources that will help me learn more about the subject. </div>
+			<p>You can add the optional information to the prompt: "What additional information do you need to help me with my project's PESTLE analysis?". It is always useful to improve outputs.</p>
+			<p>We can add the relevant information (Refresh) and ask to expand on specific aspects of the topic we are interested in:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox11')">PROMPT 5.1</button>
+			<div id="textBox11" class="prompt-box">My project revolves around the simulation of a plant, using tecnomatix, to increase the production of respirators during a pandemic. Can you help expand on Political Factors associated to this case and provide some resources that will help me learn more on the subject?</div>
+			<p>It is useful to ask the LLM to help us generate a table to organise the information gathered thus far, remember to be specific and explicit:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox12')">PROMPT 5.2</button>
+			<div id="textBox12" class="prompt-box">Can you generate a table with the information you just included about political factors in the first column? Make the first three rows correspond to the first three headers and the fourth to the resources. Also please add columns for the rest of the factors, e.g., economic, social, legal, etc...</div>
+			<p>It is good to evaluate the overall output at this stage and refine the tasks or verify the accuracy. Another useful tip when using this method is to have a structured approach or clearly defined division of tasks to be able to accurately and efficiently improve the outputs and overall work. In this case we can ask for specific examples and sources that will support the work:</p>
+			<button class="prompt-button" onclick="toggleBox('textBox13')">PROMPT 5.3</button>
+			<div id="textBox13" class="prompt-box">Can you provide specific examples of standards on government policies and regulations, specifically regarding health and safety, that were in place during the covid 19 pandemic? Please link sources whenever possible.</div>
+			<p>Here are some crucial things to remember:</p>
+			<div>
+					<ul>
+						<li><strong>be critical of the outputs, corroborate with reliable sources, continuously evaluate and check for errors;</strong></li>
+						<li><strong>overreliance on generated output increases chances of errors considerably;</strong></li>
+						<li><strong>and this method is best used as a guide for independent or collaborative learning.</strong></li>
+			  		</ul>
+			</div>
+		</div>	
+		
+	</div>
+</body>
+<script src="script.js"></script>
+</html>
