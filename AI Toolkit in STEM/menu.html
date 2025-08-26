@@ -18,6 +18,12 @@
             margin-left: 20px;
             padding-top: 40px; /* Increased padding to raise the title */
         }
+		.footnote {
+     		font-size: 16px;
+      		color: #666;
+      		text-align: right;
+			margin-top: 60px;
+    	}
         h1 {
             font-family: 'Roboto Slab', serif;
             font-size: 3em; /* Doubled the font size */
@@ -26,9 +32,16 @@
         }
         .intro-text {
             text-align: center;
-            margin-left: 25%;
-            margin-right: 25%;
+            margin-left: 20%;
+            margin-right: 20%;
             margin-bottom: 70px; /* Space between intro text and honeycomb */
+        }
+		.principles-text {
+            text-align: center;
+            margin-left: 20%;
+            margin-right: 20%;
+			position:absolute;
+            top: 1120px; /* Space between intro text and honeycomb */
         }
         .honeycomb {
             display: flex;
@@ -200,6 +213,42 @@
         .hexagon:hover .preview-box {
             display: block;
         }
+		.grid-table {
+      		display: grid;
+      		grid-template-columns: repeat(2, 1fr);
+      		grid-template-rows: repeat(5, auto);
+      		gap: 20px;
+			margin-top: 850px; 			
+    	}
+    	.grid-cell {
+      		background-color: #ffffff;
+      		border-radius: 12px;
+      		box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      		padding: 30px 20px;
+      		text-align: center;
+			font-size: .85em; /* Doubled the font size */
+      		display: flex;
+      		flex-direction: column;
+      		align-items: center;
+      		justify-content: center;
+      		transition: transform 0.2s ease;
+    	}
+
+    	.grid-cell:hover {
+      		transform: translateY(-5px);
+    	}
+
+    	.icon {
+      		font-size: 30px;
+      		color: #0077cc;
+      		margin-bottom: 15px;
+    	}
+    	@media (max-width: 700px) {
+      	.grid-table {
+        	grid-template-columns: 1fr;
+        	grid-template-rows: auto;
+      	}
+    	}
     </style>
 </head>
 <body>
@@ -355,6 +404,24 @@
                 </ul>
             </div>
         </div>
+    </div>
+	<div class="principles-text">
+        Since the rapid development of AI outpaces the implementation of effective regulations, these <a href="https://www.gov.uk/government/publications/ai-playbook-for-the-uk-government/artificial-intelligence-playbook-for-the-uk-government-html">Guiding Principles</a> have been proposed to inform the adoption of AI tools:
+    </div>
+	<div class="grid-table">
+      <div class="grid-cell"><i class="fas fa-lightbulb icon"></i><div class="text"><strong>Know</strong> what AI is and its <strong>limitations</strong></div></div>
+      <div class="grid-cell"><i class="fas fa-balance-scale icon"></i><div class="text">Use AI lawfully, <strong>ethically</strong> and <strong>responsibly</strong></div></div>
+      <div class="grid-cell"><i class="fas fa-lock icon"></i><div class="text">Use AI <strong>securely</strong></div></div>
+      <div class="grid-cell"><i class="fas fa-user-shield icon"></i><div class="text">Meaningful <strong>human controls</strong> at the right stage</div></div>
+      <div class="grid-cell"><i class="fas fa-cogs icon"></i><div class="text">Proper <strong>management</strong> of AI lifecycle</div></div>
+      <div class="grid-cell"><i class="fas fa-tools icon"></i><div class="text">Use the <strong>right tool</strong> for the job</div></div>
+      <div class="grid-cell"><i class="fas fa-users icon"></i><div class="text"><strong>Open</strong> and <strong>collaborative</strong></div></div>
+      <div class="grid-cell"><i class="fas fa-handshake icon"></i><div class="text"><strong>Commercial colleagues</strong> from start</div></div>
+      <div class="grid-cell"><i class="fas fa-user-graduate icon"></i><div class="text"><strong>Skills and expertise</strong> to implement AI</div></div>
+      <div class="grid-cell"><i class="fas fa-check-circle icon"></i><div class="text">Right <strong>assurances</strong></strong> in place</div></div>
+    </div>
+	<div class="footnote">
+      Developed by Raul Ochoa Cabrero
     </div>
 </body>
 </html>
