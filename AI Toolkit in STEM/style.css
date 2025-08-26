@@ -37,7 +37,7 @@ body {
             padding: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             position: fixed;
-            height: 65%;
+            height: 75%;
             overflow-y: auto;
         }
 	.video-container {
@@ -234,3 +234,4 @@ body {
       		margin-top: 10px;
       		white-space: pre-wrap;
     	}
+
